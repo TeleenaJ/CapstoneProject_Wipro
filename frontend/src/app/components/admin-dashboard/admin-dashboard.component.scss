@@ -1,0 +1,274 @@
+.admin-dashboard {
+  max-width: 100%;
+  padding: 0;
+  
+  h2 {
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+  }
+}
+
+.stat-card {
+  height: 120px;
+  transition: transform 0.2s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  
+  .mat-card-content {
+    padding: 20px !important;
+    height: 100%;
+  }
+  
+  .stat-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    
+    .stat-icon {
+      margin-right: 16px;
+      
+      .mat-icon {
+        font-size: 48px;
+        width: 48px;
+        height: 48px;
+      }
+    }
+    
+    .stat-info {
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      
+      .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+    }
+  }
+  
+  &.products-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+  
+  &.orders-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+  }
+  
+  &.revenue-card {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+  }
+  
+  &.stock-card {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #333;
+  }
+}
+
+.chart-card {
+  height: 400px;
+  border-radius: 12px;
+  
+  .mat-card-content {
+    height: calc(100% - 80px);
+    overflow-y: auto;
+  }
+  
+  .mat-card-header {
+    background: #f8f9fa;
+    margin: -16px -16px 16px -16px;
+    padding: 16px;
+    border-bottom: 1px solid #e9ecef;
+  }
+}
+
+.status-breakdown {
+  .status-item {
+    margin-bottom: 16px;
+    
+    .status-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .status-bar {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+      
+      .status-progress {
+        height: 100%;
+        transition: width 0.3s ease;
+        border-radius: 4px;
+        
+        &.status-pending { background: #ffc107; }
+        &.status-confirmed { background: #28a745; }
+        &.status-shipped { background: #007bff; }
+        &.status-delivered { background: #20c997; }
+        &.status-cancelled { background: #dc3545; }
+      }
+    }
+  }
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  &.status-pending { background: #fff3cd; color: #856404; }
+  &.status-confirmed { background: #d4edda; color: #155724; }
+  &.status-shipped { background: #cce5ff; color: #004085; }
+  &.status-delivered { background: #d1ecf1; color: #0c5460; }
+  &.status-cancelled { background: #f8d7da; color: #721c24; }
+}
+
+.low-stock-list {
+  .stock-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #e0e0e0;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    .item-info {
+      flex: 1;
+    }
+    
+    .item-name {
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #333;
+    }
+    
+    .item-category {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .stock-level {
+      .stock-number {
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        
+        &.critical {
+          background: #f8d7da;
+          color: #721c24;
+        }
+        
+        &.warning {
+          background: #fff3cd;
+          color: #856404;
+        }
+      }
+    }
+  }
+}
+
+.recent-orders-card {
+  border-radius: 12px;
+  
+  .mat-card-header {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    margin: -16px -16px 16px -16px;
+    padding: 16px;
+    border-bottom: 1px solid #e9ecef;
+    
+    .spacer {
+      flex: 1;
+    }
+  }
+  
+  .table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table {
+    margin-bottom: 0;
+    
+    th {
+      border-top: none;
+      font-weight: 600;
+      color: #333;
+      background: #f8f9fa;
+      padding: 12px;
+    }
+    
+    td {
+      vertical-align: middle;
+      padding: 12px;
+      border-top: 1px solid #e9ecef;
+    }
+    
+    tbody tr:hover {
+      background-color: #f8f9fa;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .admin-dashboard {
+    .stat-card {
+      height: auto;
+      
+      .stat-content {
+        flex-direction: column;
+        text-align: center;
+        
+        .stat-icon {
+          margin: 0 0 12px 0;
+        }
+      }
+    }
+    
+    .chart-card {
+      height: auto;
+      min-height: 300px;
+      
+      .mat-card-content {
+        height: auto;
+      }
+    }
+  }
+}
+
+// Loading state
+.text-center {
+  text-align: center;
+  
+  .mat-spinner {
+    margin: 0 auto;
+  }
+  
+  p {
+    margin-top: 16px;
+    color: #666;
+  }
+}
